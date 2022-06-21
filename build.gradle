@@ -15,8 +15,8 @@ repositories {
 
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter:5.8.2'
-    testImplementation 'com.codeborne:selenide:6.6.3'
-    testImplementation 'org.slf4j.impl.StaticLoggerBinder'
+    testImplementation group: 'com.codeborne', name: 'selenide', version: '6.6.3'
+    testImplementation group: 'org.slf4j', name: 'slf4j-api', version: '2.0.0-alpha7'
 }
 
 test {
