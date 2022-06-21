@@ -4,6 +4,7 @@ import com.codeborne.selenide.Condition;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.time.Duration;
 import java.time.LocalDate;
@@ -19,6 +20,9 @@ public class CardTest {
     void shouldCardTest() {
 
         System.setProperty("webdriver.chrome.driver","D:/GIT/repozitori/driver/chromedriver.exe");
+        ChromeOptions options = new ChromeOptions();
+        options.setHeadless(true);
+
         WebDriver driver = new ChromeDriver();
         driver.get("http://localhost:9999");
         //open("http://localhost:9999");
