@@ -1,25 +1,19 @@
 package ru.netology;
 
-import org.junit.jupiter.api.BeforeEach;
+import com.codeborne.selenide.Condition;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.Keys;
-import ru.netology.manager.TimeManager;
 
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.withText;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
+import static org.openqa.selenium.Keys.BACK_SPACE;
 
 public class CardDeliveryTest {
-
-    @BeforeEach
-    void setupTest() {
-        open("http://localhost:9999");
-    }
 
     @Test
     void shouldOrderCardDeliveryByText() {
