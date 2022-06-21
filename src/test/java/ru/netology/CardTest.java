@@ -1,6 +1,6 @@
 package ru.netology;
 
-import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.Condition;
 import org.junit.jupiter.api.Test;
 
 import java.time.Duration;
@@ -18,19 +18,15 @@ public class CardTest {
     void shouldOrderCardDeliveryByText() {
         open("http://localhost:9999");
 
-        String bookDate(int days) {
-            return LocalDate.now().plusDays(days).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
-        }
-
-        String meetingDateNearest = bookDate(3);
+        String meetingDateNearest = LocalDate.now().plusDays(3).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
 
         $("[data-test-id='city'] input").setValue("Иркутск");
         $("[data-test-id='date'] input").setValue(meetingDateNearest);
 
         $("[data-test-id=name] input").setValue("Афанасов Антон");
         $("[data-test-id=phone] input").setValue("+79000000880");
-        $("[data-test-id=agreement]").click();
-        $$("button").find(exactText("Забронировать")).click();
+        $("[data-test-id='agreement'] .checkbox__box").click();
+        $(byText("Забронировать")).click();
         $("[data-test-id='notification'] .notification__title")
                 .shouldBe(Condition.appear, Duration.ofSeconds(15))
                 .shouldHave((text("Успешно!")));
