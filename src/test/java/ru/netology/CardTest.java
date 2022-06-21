@@ -15,7 +15,7 @@ import static com.codeborne.selenide.Selenide.open;
 public class CardTest {
 
     @Test
-    void shouldOrderCardDeliveryByText() {
+    void shouldCardTest() {
         open("http://localhost:9999");
 
         String meetingDateNearest = LocalDate.now().plusDays(3).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
