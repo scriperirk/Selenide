@@ -3,11 +3,7 @@ package ru.netology;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 
-import com.codeborne.selenide.WebDriverRunner;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.time.Duration;
 import java.time.LocalDate;
@@ -23,7 +19,6 @@ public class CardTest {
     @Test
     void shouldCardTest() {
 
-        Configuration.browser = WebDriverRunner.CHROME;
         Configuration.holdBrowserOpen = true;
         open("http://localhost:9999");
 
