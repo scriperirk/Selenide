@@ -1,8 +1,9 @@
 package ru.netology;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Configuration;
+
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
@@ -19,11 +20,16 @@ public class CardTest {
     @Test
     void shouldCardTest() {
 
-        System.setProperty("webdriver.chrome.driver","D:/GIT/repozitori/driver/chromedriver.exe");
-        ChromeOptions options = new ChromeOptions();
-        options.setHeadless(true);
+        Configuration.holdBrowserOpen = true;
 
-        WebDriver driver = new ChromeDriver();
+        System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/driver/chromedriver.exe");
+        ChromeOptions options = new ChromeOptions();
+        options.setBinary("C:\\Users\\Антон\\AppData\\Local\\Google\\Chrome SxS\\Application\\chrome.exe");
+        options.addArguments("window-size=1920x1080");
+        //options.addArguments("--headless");
+
+
+        ChromeDriver driver = new ChromeDriver(options);
         driver.get("http://localhost:9999");
         //open("http://localhost:9999");
 
