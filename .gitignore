@@ -19,6 +19,7 @@ build/
 *.iml
 *.ipr
 out/
+driver/
 
 ### NetBeans ###
 /nbproject/private/
