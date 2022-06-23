@@ -3,7 +3,9 @@ package ru.netology;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 
+import com.codeborne.selenide.WebDriverRunner;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
@@ -14,22 +16,16 @@ import java.time.format.DateTimeFormatter;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
 
 public class CardTest {
 
     @Test
     void shouldCardTest() {
 
-        //Set chromedriver path
-        System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/driver/chromedriver.exe");
-        ChromeOptions options = new ChromeOptions();
-        options.setBinary("C:\\Users\\Антон\\AppData\\Local\\Google\\Chrome SxS\\Application\\chrome.exe");
-        options.addArguments("window-size=1920x1080");
-
-        ChromeDriver driver = new ChromeDriver(options);
-
-        // Open Google
-        driver.get("http://localhost:9999");
+        Configuration.browser = WebDriverRunner.CHROME;
+        Configuration.holdBrowserOpen = true;
+        open("http://localhost:9999");
 
         String meetingDateNearest = LocalDate.now().plusDays(3).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
 
