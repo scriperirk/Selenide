@@ -26,12 +26,9 @@ public class CardTest {
         ChromeOptions options = new ChromeOptions();
         options.setBinary("C:\\Users\\Антон\\AppData\\Local\\Google\\Chrome SxS\\Application\\chrome.exe");
         options.addArguments("window-size=1920x1080");
-        //options.addArguments("--headless");
-
 
         ChromeDriver driver = new ChromeDriver(options);
         driver.get("http://localhost:9999");
-        //open("http://localhost:9999");
 
         String meetingDateNearest = LocalDate.now().plusDays(3).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
 
